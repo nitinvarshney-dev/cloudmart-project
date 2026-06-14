@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  user-service:
+    image: cloudmart-user:v1
+    container_name: user-service
+    ports:
+      - "5001:5001"
+
+  product-service:
+    image: cloudmart-product:v1
+    container_name: product-service
+    ports:
+      - "5002:5002"
+
+  order-service:
+    image: cloudmart-order:v1
+    container_name: order-service
+    ports:
+      - "5003:5003"
+
+  api-gateway:
+    image: cloudmart-gateway:v1
+    container_name: api-gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - user-service
+      - product-service
+      - order-service

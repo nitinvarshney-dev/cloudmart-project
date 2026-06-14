@@ -4,17 +4,17 @@ const axios = require("axios");
 const app = express();
 
 app.get("/api/users", async (req, res) => {
-  const response = await axios.get("http://localhost:5001/users");
+  const response = await axios.get("http://user-service:5001/users");
   res.json(response.data);
 });
 
 app.get("/api/products", async (req, res) => {
-  const response = await axios.get("http://localhost:5002/products");
+  const response = await axios.get("http://product-service:5002/products");
   res.json(response.data);
 });
 
 app.get("/api/orders", async (req, res) => {
-  const response = await axios.get("http://localhost:5003/orders");
+  const response = await axios.get("http://order-service:5003/orders");
   res.json(response.data);
 });
 
